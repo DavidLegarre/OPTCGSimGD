@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://d4cvj8aty33xo"]
+[gd_scene format=3 uid="uid://drhon8c5mmbfj"]
 
 [node name="PlayerBoard" type="Node2D" unique_id=2108142302]
 
@@ -18,6 +18,9 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="CenterColumn" type="VBoxContainer" parent="LayoutVBox/FieldGrid" unique_id=1183237169]
+layout_mode = 2
+
+[node name="CharacterArea" type="HBoxContainer" parent="LayoutVBox/FieldGrid/CenterColumn" unique_id=1306534179]
 layout_mode = 2
 
 [node name="RightColumn" type="VBoxContainer" parent="LayoutVBox/FieldGrid" unique_id=162856560]
