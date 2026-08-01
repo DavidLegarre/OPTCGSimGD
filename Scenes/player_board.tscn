@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://d4cvj8aty33xo"]
+
+[node name="PlayerBoard" type="Node2D" unique_id=2108142302]
+
+[node name="LayoutVBox" type="VBoxContainer" parent="." unique_id=1426960113]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="FieldGrid" type="HBoxContainer" parent="LayoutVBox" unique_id=1255452441]
+layout_mode = 2
+
+[node name="LeftColumn" type="VBoxContainer" parent="LayoutVBox/FieldGrid" unique_id=1251886042]
+layout_mode = 2
+
+[node name="CenterColumn" type="VBoxContainer" parent="LayoutVBox/FieldGrid" unique_id=1183237169]
+layout_mode = 2
+
+[node name="RightColumn" type="VBoxContainer" parent="LayoutVBox/FieldGrid" unique_id=162856560]
+layout_mode = 2
+
+[node name="Hand" type="HBoxContainer" parent="LayoutVBox" unique_id=1285069284]
+layout_mode = 2
+
+[node name="DonArea" type="HBoxContainer" parent="LayoutVBox" unique_id=1131974977]
+layout_mode = 2
