@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://dpyala6eu84nk"]
+
+[ext_resource type="Script" uid="uid://cm8fimp6fo2bj" path="res://Scenes/card_ui.gd" id="1_lgc0u"]
+
+[node name="CardUI" type="Control" unique_id=449841124]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_lgc0u")
+
+[node name="State" type="Label" parent="." unique_id=614009923]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
