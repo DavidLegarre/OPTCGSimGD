@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://3nbc1s57jyq8" path="res://Scripts/CardUi.cs" id="1_lgc0u"]
 
 [node name="CardUI" type="Control" unique_id=449841124]
-custom_minimum_size = Vector2(360, 512)
+custom_minimum_size = Vector2(90, 128)
 layout_mode = 3
 anchors_preset = 8
 anchor_left = 0.5

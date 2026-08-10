@@ -23,10 +23,10 @@ public partial class CardUi : Control
 
 	public override void _Ready()
 	{
-		cardBackTexture = GD.Load<Texture2D>(_assets.FindCard(cardID));
-		cardFrontTexture = GD.Load<Texture2D>(_assets.GetCardBack(cardType));
+		cardFrontTexture = GD.Load<Texture2D>(_assets.FindCard(cardID));
+		cardBackTexture = GD.Load<Texture2D>(_assets.GetCardBack(cardType));
 		var artRect = GetNode<TextureRect>("ArtRect");
-		artRect.Texture = cardBackTexture;
+		artRect.Texture = cardFrontTexture;
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -40,11 +40,11 @@ public partial class CardUi : Control
 			&& b.Pressed
 			&& b.ButtonIndex == MouseButton.Left)
 		{
-			Flip();
+			_Flip();
 		}
 	}
 
-	public void Flip()
+	private void _Flip()
 	{
 		// guard: ignore clicks while animating
 		if (_flipTween != null && _flipTween.IsRunning()) return;
@@ -59,11 +59,11 @@ public partial class CardUi : Control
 		_flipped = !_flipped;
 		if (_flipped)
 		{
-			_LoadCardFront();
+			_LoadCardBack();
 		}
 		else
 		{
-			_LoadCardBack();
+			_LoadCardFront();
 		}
 
 	}));
