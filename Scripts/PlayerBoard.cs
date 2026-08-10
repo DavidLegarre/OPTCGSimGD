@@ -53,8 +53,8 @@ public partial class PlayerBoard : Control
 		for (int i = 0; i < 5; i++)
 		{
 			var card = SpawnCard("OP16-001", area);
-			card.RotationDegrees = -90;
 			card.Flip();
+			card.Tap();
 			_lifeCards.Add(card);
 		}
 	}
