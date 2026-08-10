@@ -3,8 +3,6 @@ using System;
 
 public partial class CardUi : Control
 {
-	public const float CardAspect = 360f / 512f;
-
 	// Called when the node enters the scene tree for the first time.
 	public string cardName { get; init; }
 	[Export] public string cardID { get; set; }
