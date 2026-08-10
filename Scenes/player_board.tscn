@@ -11,6 +11,8 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_cx4i1")
+metadata/_edit_vertical_guides_ = [235.0, 979.0]
+metadata/_edit_horizontal_guides_ = [472.0, 245.0]
 
 [node name="Background" type="TextureRect" parent="." unique_id=1783348132]
 z_index = -1
@@ -24,7 +26,7 @@ grow_vertical = 2
 texture = ExtResource("1_fjxxh")
 expand_mode = 1
 
-[node name="LayoutVBox" type="VBoxContainer" parent="." unique_id=1426960113]
+[node name="Zones" type="Control" parent="." unique_id=743733957]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -32,81 +34,141 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="FieldGrid" type="HBoxContainer" parent="LayoutVBox" unique_id=1255452441]
-layout_mode = 2
-size_flags_vertical = 3
-size_flags_stretch_ratio = 2.0
-
-[node name="LeftColumn" type="VBoxContainer" parent="LayoutVBox/FieldGrid" unique_id=1251886042]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="LifeArea" type="VBoxContainer" parent="LayoutVBox/FieldGrid/LeftColumn" unique_id=707548726]
+[node name="Life" type="Control" parent="Zones" unique_id=1095751092]
 unique_name_in_owner = true
-layout_mode = 2
-size_flags_vertical = 3
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 236.0
+offset_bottom = -177.0
+grow_vertical = 2
 
-[node name="CenterColumn" type="VBoxContainer" parent="LayoutVBox/FieldGrid" unique_id=1183237169]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_stretch_ratio = 5.0
+[node name="LifeStack" type="VBoxContainer" parent="Zones/Life" unique_id=1227467521]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="LayoutVBox/FieldGrid/CenterColumn" unique_id=1259129550]
-layout_mode = 2
-size_flags_vertical = 3
-theme_override_constants/margin_left = 50
-theme_override_constants/margin_top = 0
-theme_override_constants/margin_bottom = 0
+[node name="DonDeck" type="Control" parent="Zones" unique_id=430159581]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -185.0
+offset_right = 234.0
+grow_vertical = 0
 
-[node name="CharacterArea" type="HBoxContainer" parent="LayoutVBox/FieldGrid/CenterColumn/MarginContainer" unique_id=1306534179]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_vertical = 3
-theme_override_constants/separation = 25
+[node name="DonDeckSlot" type="HBoxContainer" parent="Zones/DonDeck" unique_id=179419814]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
 
-[node name="CenterRow" type="HBoxContainer" parent="LayoutVBox/FieldGrid/CenterColumn" unique_id=1899231008]
-layout_mode = 2
-size_flags_vertical = 3
+[node name="CharacterArea" type="Control" parent="Zones" unique_id=1331096684]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 234.0
+offset_bottom = 243.0
+grow_horizontal = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="LayoutVBox/FieldGrid/CenterColumn/CenterRow" unique_id=20888110]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_stretch_ratio = 3.0
-theme_override_constants/margin_left = 25
-theme_override_constants/margin_right = 10
+[node name="CharRow" type="HBoxContainer" parent="Zones/CharacterArea" unique_id=1075024404]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="LeaderArea" type="HBoxContainer" parent="LayoutVBox/FieldGrid/CenterColumn/CenterRow/MarginContainer" unique_id=1056590447]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_horizontal = 3
+[node name="Leader" type="Control" parent="Zones" unique_id=260321616]
+layout_mode = 1
+anchor_left = 0.52900004
+anchor_top = 0.55300003
+anchor_right = 0.52900004
+anchor_bottom = 0.55300003
+offset_left = -97.40808
+offset_top = -113.344025
+offset_right = 96.59192
+offset_bottom = 113.655975
 
-[node name="MarginContainer2" type="MarginContainer" parent="LayoutVBox/FieldGrid/CenterColumn/CenterRow" unique_id=1926631517]
-layout_mode = 2
-size_flags_horizontal = 3
+[node name="LeaderSlot" type="HBoxContainer" parent="Zones/Leader" unique_id=1639875659]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="StageArea" type="HBoxContainer" parent="LayoutVBox/FieldGrid/CenterColumn/CenterRow/MarginContainer2" unique_id=1994179933]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_horizontal = 3
+[node name="Stage" type="Control" parent="Zones" unique_id=242289445]
+layout_mode = 1
+anchor_left = 0.739
+anchor_top = 0.55
+anchor_right = 0.739
+anchor_bottom = 0.55
+offset_left = -97.328
+offset_top = -113.399994
+offset_right = 96.672
+offset_bottom = 113.600006
 
-[node name="DeckArea" type="HBoxContainer" parent="LayoutVBox/FieldGrid/CenterColumn/CenterRow" unique_id=1778490747]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_horizontal = 3
+[node name="HBoxContainer" type="HBoxContainer" parent="Zones/Stage" unique_id=2110963597]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="BottomRow" type="HBoxContainer" parent="LayoutVBox" unique_id=1947466276]
-layout_mode = 2
-size_flags_vertical = 3
+[node name="Deck" type="Control" parent="Zones" unique_id=1061255677]
+layout_mode = 1
+anchor_left = 0.91300005
+anchor_top = 0.55
+anchor_right = 0.91300005
+anchor_bottom = 0.55
+offset_left = -72.776
+offset_top = -113.399994
+offset_right = 97.224
+offset_bottom = 113.600006
 
-[node name="DonDeck" type="HBoxContainer" parent="LayoutVBox/BottomRow" unique_id=189800481]
-layout_mode = 2
-size_flags_horizontal = 3
+[node name="HBoxContainer" type="HBoxContainer" parent="Zones/Deck" unique_id=643978087]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="DonArea" type="HBoxContainer" parent="LayoutVBox/BottomRow" unique_id=1131974977]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_stretch_ratio = 5.0
+[node name="DonArea" type="Control" parent="Zones" unique_id=1671152287]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -341.0
+offset_top = -177.0
+offset_right = 404.0
+grow_horizontal = 2
+grow_vertical = 0
 
-[node name="TrashArea" type="HBoxContainer" parent="LayoutVBox/BottomRow" unique_id=1816301632]
-layout_mode = 2
-size_flags_horizontal = 3
+[node name="HBoxContainer" type="HBoxContainer" parent="Zones/DonArea" unique_id=260936530]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Trash" type="Control" parent="Zones" unique_id=830847102]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -172.0
+offset_top = -177.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Zones/Trash" unique_id=1977003162]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0

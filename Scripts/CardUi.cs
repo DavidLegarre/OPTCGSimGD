@@ -44,6 +44,12 @@ public partial class CardUi : Control
 		}
 	}
 
+	public void Tap()
+	{
+		PivotOffset = Size / 2f;
+		RotationDegrees += 90f;
+	}
+
 	public void Flip()
 	{
 		// guard: ignore clicks while animating
