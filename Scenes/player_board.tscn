@@ -1,10 +1,25 @@
 [gd_scene format=3 uid="uid://drhon8c5mmbfj"]
 
-[ext_resource type="Texture2D" uid="uid://dlbcitemutoch" path="res://Assets/board/background.jpg" id="1_fjxxh"]
+[ext_resource type="Texture2D" uid="uid://sbvq4l1tp6mi" path="res://Assets/board/background.webp" id="1_fjxxh"]
 
 [node name="PlayerBoard" type="Control" unique_id=1350539423]
 layout_mode = 3
-anchors_preset = 0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="TextureRect" parent="." unique_id=1783348132]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_fjxxh")
+expand_mode = 1
+stretch_mode = 4
 
 [node name="LayoutVBox" type="VBoxContainer" parent="." unique_id=1426960113]
 layout_mode = 1
@@ -36,14 +51,3 @@ layout_mode = 2
 
 [node name="DonArea" type="HBoxContainer" parent="LayoutVBox" unique_id=1131974977]
 layout_mode = 2
-
-[node name="Background" type="TextureRect" parent="." unique_id=1783348132]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("1_fjxxh")
-expand_mode = 1
-stretch_mode = 4
