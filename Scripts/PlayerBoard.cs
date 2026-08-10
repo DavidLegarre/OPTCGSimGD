@@ -1,7 +1,5 @@
 using Godot;
-using System;
 using System.Collections.Generic;
-using System.Threading.Tasks;
 
 public partial class PlayerBoard : Control
 {
@@ -14,9 +12,13 @@ public partial class PlayerBoard : Control
 	{
 		_cardScene = GD.Load<PackedScene>(_cardScenePath);
 		FillCharacterArea();
-		FillSingleArea("%LeaderArea");
-		FillSingleArea("%StageArea");
+		FillSingleArea("%LeaderSlot");
+		FillSingleArea("%StageSlot");
+		FillSingleArea("%DeckSlot");
+		FillSingleArea("%DonDeckSlot");
+		FillSingleArea("%TrashSlot");
 		FillLifeArea();
+		FillDonArea();
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -35,9 +37,8 @@ public partial class PlayerBoard : Control
 
 	private void FillCharacterArea()
 	{
-		var area = GetNode<Container>("%CharacterArea");
+		var area = GetNode<Container>("%CharRow");
 		for (int i = 0; i < 5; i++) SpawnCard("OP16-001", area);
-
 	}
 
 	private void FillSingleArea(string areaName)
@@ -46,22 +47,21 @@ public partial class PlayerBoard : Control
 		SpawnCard("OP16-001", area);
 	}
 
-	private async void FillLifeArea()
+	private void FillLifeArea()
 	{
-		var area = GetNode<Container>("%LifeArea");
+		var area = GetNode<Container>("%LifeStack");
 		for (int i = 0; i < 5; i++)
 		{
-			var card = _cardScene.Instantiate<CardUi>();
-			card.cardID = "OP16-001";
-			card.CustomMinimumSize = new Vector2(90, 128);
-			area.AddChild(card);
-			_lifeCards.Add(card);
-		}
-		await ToSignal(GetTree(), SceneTree.SignalName.ProcessFrame);
-		foreach (var card in _lifeCards)
-		{
+			var card = SpawnCard("OP16-001", area);
 			card.RotationDegrees = -90;
 			card.Flip();
+			_lifeCards.Add(card);
 		}
+	}
+
+	private void FillDonArea()
+	{
+		var area = GetNode<Container>("%DonAreaSlot");
+		for (int i = 0; i < 10; i++) SpawnCard("OP16-001", area);
 	}
 }
