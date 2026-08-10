@@ -21,11 +21,6 @@ public partial class PlayerBoard : Control
 		FillDonArea();
 	}
 
-	// Called every frame. 'delta' is the elapsed time since the previous frame.
-	public override void _Process(double delta)
-	{
-	}
-
 	private CardUi SpawnCard(string cardID, Control parent)
 	{
 		var card = (CardUi)_cardScene.Instantiate();
@@ -47,15 +42,19 @@ public partial class PlayerBoard : Control
 		SpawnCard("OP16-001", area);
 	}
 
-	private void FillLifeArea()
+	private async void FillLifeArea()
 	{
 		var area = GetNode<Container>("%LifeStack");
 		for (int i = 0; i < 5; i++)
 		{
 			var card = SpawnCard("OP16-001", area);
+			_lifeCards.Add(card);
+		}
+		await ToSignal(GetTree(), SceneTree.SignalName.ProcessFrame);
+		foreach (var card in _lifeCards)
+		{
 			card.Flip();
 			card.Tap();
-			_lifeCards.Add(card);
 		}
 	}
 

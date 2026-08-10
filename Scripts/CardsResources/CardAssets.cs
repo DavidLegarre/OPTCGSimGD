@@ -1,21 +1,13 @@
-using System.Globalization;
-
 public class CardAssets
 {
     private string RootPath { get; init; } = "res://Assets/Cards";
     public string FindCard(string cardId)
     {
-        var (set, num) = SplitId(cardId);   // set/num unused
+        var set = cardId.Split('-')[0];
         return $"{RootPath}/{set}/{cardId}.png";
     }
 
-    public static (string Set, string Number) SplitId(string id)
-    {
-        var parts = id.Split('-');
-        return (parts[0], parts[1]);
-    }
-
-    public string GetCardBack(string cardType)
+    public string GetCardBack()
     {
         return $"{RootPath}/cardback.jpg";
     }

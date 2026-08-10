@@ -1,15 +1,8 @@
 using Godot;
-using System;
 
 public partial class CardUi : Control
 {
-	// Called when the node enters the scene tree for the first time.
-	public string cardName { get; init; }
 	[Export] public string cardID { get; set; }
-	public string cardType { get; init; }
-	public int cardPower { get; init; }
-	public string cardEffect { get; init; }
-	public string cardText { get; init; }
 
 	private CardAssets _assets { get; init; } = new CardAssets();
 
@@ -19,19 +12,11 @@ public partial class CardUi : Control
 	private Texture2D cardFrontTexture { get; set; }
 	private Texture2D cardBackTexture { get; set; }
 
-
-
 	public override void _Ready()
 	{
 		cardFrontTexture = GD.Load<Texture2D>(_assets.FindCard(cardID));
-		cardBackTexture = GD.Load<Texture2D>(_assets.GetCardBack(cardType));
-		var artRect = GetNode<TextureRect>("ArtRect");
-		artRect.Texture = cardFrontTexture;
-	}
-
-	// Called every frame. 'delta' is the elapsed time since the previous frame.
-	public override void _Process(double delta)
-	{
+		cardBackTexture = GD.Load<Texture2D>(_assets.GetCardBack());
+		_SetTexture(cardFrontTexture);
 	}
 
 	public override void _GuiInput(InputEvent @event)
@@ -63,31 +48,13 @@ public partial class CardUi : Control
 	{
 		// swap texture here
 		_flipped = !_flipped;
-		if (_flipped)
-		{
-			_LoadCardBack();
-		}
-		else
-		{
-			_LoadCardFront();
-		}
-
+		_SetTexture(_flipped ? cardBackTexture : cardFrontTexture);
 	}));
 		_flipTween.TweenProperty(this, "scale:x", 1f, 0.15f);
-
-
 	}
 
-	private void _LoadCardBack()
+	private void _SetTexture(Texture2D texture)
 	{
-
-		var artRect = GetNode<TextureRect>("ArtRect");
-		artRect.Texture = cardBackTexture;
-	}
-
-	private void _LoadCardFront()
-	{
-		var artRect = GetNode<TextureRect>("ArtRect");
-		artRect.Texture = cardFrontTexture;
+		GetNode<TextureRect>("ArtRect").Texture = texture;
 	}
 }
