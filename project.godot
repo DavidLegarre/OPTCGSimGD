@@ -29,5 +29,5 @@ project/assembly_name="OPTCGSimGD"
 
 [rendering]
 
-rendering_device/driver.windows="d3d12"
+rendering_device/fallback_to_vulkan=false
 renderer/rendering_method="mobile"
