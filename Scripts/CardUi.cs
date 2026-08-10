@@ -3,6 +3,8 @@ using System;
 
 public partial class CardUi : Control
 {
+	public const float CardAspect = 360f / 512f;
+
 	// Called when the node enters the scene tree for the first time.
 	public string cardName { get; init; }
 	[Export] public string cardID { get; set; }
@@ -40,11 +42,11 @@ public partial class CardUi : Control
 			&& b.Pressed
 			&& b.ButtonIndex == MouseButton.Left)
 		{
-			_Flip();
+			Flip();
 		}
 	}
 
-	private void _Flip()
+	public void Flip()
 	{
 		// guard: ignore clicks while animating
 		if (_flipTween != null && _flipTween.IsRunning()) return;

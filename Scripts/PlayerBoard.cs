@@ -12,6 +12,8 @@ public partial class PlayerBoard : Control
 	{
 		_cardScene = GD.Load<PackedScene>(_cardScenePath);
 		FillCharacterArea();
+		FillSingleArea("%LeaderArea");
+		FillSingleArea("%StageArea");
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -19,12 +21,15 @@ public partial class PlayerBoard : Control
 	{
 	}
 
-	private CardUi SpawnCard(string cardID, Node parent)
+	private async void SpawnCard(string cardID, Control parent)
 	{
 		var card = (CardUi)_cardScene.Instantiate();
 		card.cardID = cardID;
+		card.CustomMinimumSize = new Vector2(90, 128);
 		parent.AddChild(card);
-		return card;
+		await ToSignal(GetTree(), SceneTree.SignalName.ProcessFrame);
+		var h = parent.Size.Y;
+		card.CustomMinimumSize = new Vector2(h * CardUi.CardAspect, h);
 	}
 
 	private void FillCharacterArea()
@@ -32,5 +37,11 @@ public partial class PlayerBoard : Control
 		var area = GetNode<Container>("%CharacterArea");
 		for (int i = 0; i < 5; i++) SpawnCard("OP16-001", area);
 
+	}
+
+	private void FillSingleArea(string areaName)
+	{
+		var area = GetNode<Container>(areaName);
+		SpawnCard("OP16-001", area);
 	}
 }
