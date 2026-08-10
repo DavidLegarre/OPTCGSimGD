@@ -1,3 +1,5 @@
+using System.Globalization;
+
 public class CardAssets
 {
     private string RootPath { get; init; } = "res://Assets/Cards";
@@ -11,5 +13,10 @@ public class CardAssets
     {
         var parts = id.Split('-');
         return (parts[0], parts[1]);
+    }
+
+    public string GetCardBack(string cardType)
+    {
+        return $"{RootPath}/cardback.jpg";
     }
 }
